@@ -248,6 +248,9 @@ img{
 </head>
 
 <body>
+<audio id="faaahSound" preload="auto">
+    <source src="faaah.mp3" type="audio/mpeg">
+</audio>
 
 <div class="container">
 
@@ -321,6 +324,7 @@ for(let i=0;i<120;i++){
     document.body.appendChild(c);
 }
 
+const faaahSound = document.getElementById("faaahSound");
 const giftBtn=document.getElementById("giftBtn");
 const popup=document.getElementById("giftPopup");
 const closeBtn=document.querySelector(".closeBtn");
@@ -391,6 +395,18 @@ giftBtn.onclick=()=>{
         giftBtn.innerHTML="✅ Claimed";
         giftBtn.title="Already Claimed 😂";
     }, 2300);
+
+    setTimeout(()=>{
+    popup.style.display="block";
+    giftTitle.innerHTML="😂 GOTCHA BRO!";
+    faaahSound.currentTime = 0;
+    faaahSound.play();
+
+    giftClaimed = true;
+    giftBtn.classList.add("claimed");
+    giftBtn.innerHTML="✅ Claimed";
+    giftBtn.title="Already Claimed 😂";
+}, 2300);
 }
 closeBtn.onclick=()=>{
     popup.style.display="none";
